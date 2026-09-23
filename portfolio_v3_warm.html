@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Green - Data Science & Stories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #2d5016;
+            --accent: #e8704a;
+            --light-bg: #fffaf0;
+            --card-bg: #fff5e6;
+            --text: #3d3d3d;
+            --text-light: #6b6b6b;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(to bottom, var(--light-bg), #fff9f0);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #3d6b1f 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+        header h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .welcome {
+            font-size: 1.3em;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+            font-weight: 300;
+        }
+        .intro-text {
+            font-size: 1.05em;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            line-height: 1.7;
+            color: #e8e8e8;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+        .cta-btn:hover {
+            background: #d45a33;
+            transform: scale(1.05);
+        }
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        .cta-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 2px solid var(--accent);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--accent);
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        section {
+            margin-bottom: 70px;
+        }
+        h2 {
+            font-size: 2.2em;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .intro-paragraph {
+            font-size: 1.05em;
+            color: var(--text);
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            padding: 35px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 112, 74, 0.12);
+        }
+        .project-card h3 {
+            color: var(--primary);
+            font-size: 1.35em;
+            margin-bottom: 8px;
+        }
+        .project-meta {
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .project-card p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .skills-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .skill-tag {
+            background: white;
+            border: 2px solid var(--accent);
+            color: var(--primary);
+            padding: 12px 18px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+        }
+        .education-card {
+            background: var(--card-bg);
+            padding: 28px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent);
+        }
+        .education-card h3 {
+            color: var(--primary);
+            font-size: 1.15em;
+            margin-bottom: 8px;
+        }
+        .education-card .school {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .education-card .details {
+            color: var(--text-light);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        .awards-section {
+            background: linear-gradient(135deg, #f5e6d3 0%, #ffecd2 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .awards-section h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .award {
+            color: var(--text);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #3d6b1f 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        footer p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        .footer-note {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            .welcome {
+                font-size: 1.05em;
+            }
+            nav {
+                gap: 15px;
+                padding: 10px 20px;
+            }
+            .container {
+                padding: 40px 20px;
+            }
+            .cta-buttons {
+                gap: 10px;
+            }
+            .cta-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JACK GREEN</h1>
+        <p class="welcome">Data Science Professional & Lifelong Learner</p>
+        <p class="intro-text">Turning complex data into clear insights. Passionate about solving real-world problems through analytics, machine learning, and thoughtful engineering.</p>
+        <div class="cta-buttons">
+            <a href="mailto:jackdgreen3@gmail.com" class="cta-btn">📧 Get in Touch</a>
+            <a href="#projects" class="cta-btn secondary">📊 See My Work</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="intro-paragraph">
+                I'm a data science engineer based in Arkansas, currently working at J.B. Hunt where I help solve logistics problems using data and machine learning. I'm pursuing a Master's degree in Applied Business Analytics while working full-time and coaching youth sports.
+            </p>
+            <p class="intro-paragraph">
+                What drives me: Using data to tell stories, building teams that create impact, and staying curious about how technology can improve how we work and live.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+
+            <div class="project-card">
+                <h3>Retail Demand Forecasting</h3>
+                <p class="project-meta">Dillard's Inc. Partnership | Aug 2025 - May 2026</p>
+                <p>Led a team developing machine learning models to forecast retail product demand. We engineered time-series features, analyzed seasonal patterns, and built an XGBoost model that improved inventory planning. <span class="highlight">Placed 2nd in university competition.</span> Presented to industry partners and faculty—a project that moved from concept to real business impact.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Carrier Performance Analytics Platform</h3>
+                <p class="project-meta">J.B. Hunt | Summer 2025</p>
+                <p>Owned the complete development of a carrier analytics solution using SQL and Python. Built automated pipelines to generate personalized performance summaries for transportation carriers. Presented findings to business stakeholders for operational implementation. This project taught me how to translate business problems into technical solutions.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Supply Chain Pricing Strategy</h3>
+                <p class="project-meta">ArcBest | Summer 2024</p>
+                <p>Analyzed cost, market, and value data to identify pricing opportunities across multiple business units. Developed proposals that supported revenue goals while improving customer value alignment. Collaborated cross-functionally to ensure pricing strategies were operationally feasible.</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+
+            <div class="project-card">
+                <h3>Logistics Engineer 1 (Data Science Team)</h3>
+                <p class="project-meta">J.B. Hunt Transport Services | July 2025 - Present</p>
+                <p>Full-time role in the Engineer Development Program. Focused on data-driven logistics optimization and analytics development. Learning how data science impacts an organization at scale.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Project Lead - Retail Analytics</h3>
+                <p class="project-meta">University of Arkansas & Dillard's | Feb 2026 - Present</p>
+                <p>Managing project timelines and deliverables for a high-visibility retail forecasting project. Serving as primary liaison between our student team and Dillard's data science team. Learned how to communicate across organizations and keep teams aligned toward shared goals.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Math Tutor & Youth Coach</h3>
+                <p class="project-meta">Various Organizations | 2019 - Present</p>
+                <p>Mentored middle and high school students in mathematics. Currently coaching flag football for 5th-6th graders at Bentonville Boys & Girls Club. These roles taught me how to communicate complex ideas clearly and inspire confidence in others.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Tools</h2>
+            <div class="skills-showcase">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">XGBoost</span>
+                <span class="skill-tag">RStudio</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">SAS</span>
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Data Pipelines</span>
+                <span class="skill-tag">Analytics</span>
+                <span class="skill-tag">Leadership</span>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education & Recognition</h2>
+
+            <div class="education-card">
+                <h3>Master of Applied Business Analytics</h3>
+                <p class="school">University of Arkansas</p>
+                <p class="details">Expected May 2027 | <span class="highlight">GPA: 4.0</span> | Chancellor's List (Fall 2024, 2025)</p>
+            </div>
+
+            <div class="education-card">
+                <h3>Bachelor of Science in Data Science</h3>
+                <p class="school">University of Arkansas</p>
+                <p class="details">Expected May 2026 | <span class="highlight">GPA: 3.832</span> | Dean's List (Multiple Semesters)</p>
+            </div>
+
+            <div class="awards-section">
+                <h4>🏆 Academic Honors & Leadership</h4>
+                <div class="awards-grid">
+                    <div class="award"><strong>Chancellor's List</strong> Spring 2023, Fall 2024, 2025</div>
+                    <div class="award"><strong>Dean's List</strong> Fall 2022, 2024; Spring 2023, 2025</div>
+                    <div class="award"><strong>Order of Omega</strong> Greek Honor Society</div>
+                    <div class="award"><strong>Eagle Scout</strong> Boy Scouts of America</div>
+                    <div class="award"><strong>SAE Academic Chair</strong> 2023-2024</div>
+                    <div class="award"><strong>National Indigenous Scholar</strong> 2021-2022</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Jack Green</strong></p>
+        <p>Data Science Professional | Analytics Engineer | Problem Solver</p>
+        <p>📧 jackdgreen3@gmail.com | 📱 479-461-6833</p>
+        <p class="footer-note">Based in Fort Smith, Arkansas | Open to remote opportunities</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Green - Data Science Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #ffffff;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        header {
+            background: #f8f9fa;
+            padding: 60px 40px;
+            border-bottom: 1px solid #e8eaed;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8em;
+            color: #1a73e8;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #5f6368;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.95em;
+            color: #5f6368;
+            flex-wrap: wrap;
+        }
+        .header-meta a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .header-meta a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #e8eaed;
+            padding: 15px 40px;
+            display: flex;
+            gap: 40px;
+            z-index: 100;
+        }
+        nav a {
+            color: #5f6368;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #1a73e8;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        section {
+            margin-bottom: 60px;
+        }
+        h2 {
+            font-size: 1.6em;
+            color: #1a73e8;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 10px;
+        }
+        .experience-item {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e8eaed;
+        }
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .position {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .position h3 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .company {
+            color: #5f6368;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        .date {
+            color: #9aa0a6;
+            font-size: 0.9em;
+        }
+        .description {
+            color: #5f6368;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+        .description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+            color: #5f6368;
+        }
+        .description li {
+            margin-bottom: 6px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+        .skill-item {
+            background: #f1f3f4;
+            padding: 12px 16px;
+            border-radius: 4px;
+            color: #2c3e50;
+            font-weight: 500;
+            text-align: center;
+            font-size: 0.95em;
+        }
+        .education-item {
+            margin-bottom: 25px;
+        }
+        .education-item h3 {
+            color: #2c3e50;
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .education-item .school {
+            color: #5f6368;
+            margin-bottom: 4px;
+        }
+        .education-item .details {
+            color: #9aa0a6;
+            font-size: 0.9em;
+        }
+        .honors {
+            background: #f1f3f4;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .honors h4 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+        .honors-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .honor-item {
+            color: #5f6368;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        footer {
+            background: #f8f9fa;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #e8eaed;
+            margin-top: 60px;
+            color: #5f6368;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            nav {
+                flex-wrap: wrap;
+                padding: 10px 20px;
+                gap: 15px;
+            }
+            .container {
+                padding: 40px 20px;
+            }
+            .position {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JACK GREEN</h1>
+        <p class="subtitle">Data Science Professional & Analytics Engineer</p>
+        <div class="header-meta">
+            <a href="mailto:jackdgreen3@gmail.com">jackdgreen3@gmail.com</a>
+            <span>479-461-6833</span>
+            <span>Fort Smith, AR</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#about">ABOUT</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#education">EDUCATION</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About</h2>
+            <p>Results-driven data science professional with proven expertise in developing machine learning solutions, optimizing supply chain operations, and leading cross-functional teams. Currently serving as Logistics Engineer at J.B. Hunt's data science team, where I leverage advanced analytics to drive operational efficiency and strategic decision-making. Pursuing Master's degree in Applied Business Analytics with a 4.0 GPA while delivering high-impact projects in retail forecasting, carrier analytics, and logistics optimization.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="position">
+                    <h3>Logistics Engineer 1 - Data Science Team</h3>
+                    <span class="date">July 2025 - Present</span>
+                </div>
+                <p class="company">J.B. Hunt Transport Services</p>
+                <p class="description">Full-time role in Engineer Development Program focused on data science applications in logistics and supply chain optimization.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="position">
+                    <h3>Project Lead - Retail Demand Forecasting</h3>
+                    <span class="date">February 2026 - Present</span>
+                </div>
+                <p class="company">Dillard's Inc. & University of Arkansas</p>
+                <p class="description">
+                    <ul>
+                        <li>Coordinating project timelines, task assignments, and deliverables with academic and industry teams</li>
+                        <li>Serving as primary liaison between student team and Dillard's data science team</li>
+                        <li><strong>Results: Placed 2nd in university competition</strong></li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <div class="position">
+                    <h3>Data Science Intern</h3>
+                    <span class="date">Summer 2025</span>
+                </div>
+                <p class="company">J.B. Hunt Transport Services</p>
+                <p class="description">
+                    <ul>
+                        <li>Developed SQL and Python analytics solution generating personalized carrier performance summaries</li>
+                        <li>Designed metrics for broker decision-making and carrier identification</li>
+                        <li>Built automated data pipelines analyzing carrier activity and shipment characteristics</li>
+                        <li>Presented implementation recommendations to business stakeholders</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <div class="position">
+                    <h3>Retail Demand Forecasting Project</h3>
+                    <span class="date">August 2025 - May 2026</span>
+                </div>
+                <p class="company">Dillard's Inc. & University of Arkansas</p>
+                <p class="description">
+                    <ul>
+                        <li>Partnered with Dillard's Data Science team to develop ML demand forecasting models</li>
+                        <li>Engineered time-series features (lag variables, rolling averages, seasonal indicators)</li>
+                        <li>Developed and tuned XGBoost forecasting model for inventory planning</li>
+                        <li>Presented methodology to industry partners and faculty</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="experience-item">
+                <div class="position">
+                    <h3>Pricing & Supply Chain Engineer Intern</h3>
+                    <span class="date">Summer 2024</span>
+                </div>
+                <p class="company">ArcBest Corporation</p>
+                <p class="description">
+                    <ul>
+                        <li>Analyzed cost, market, and value-added data for supply chain opportunities</li>
+                        <li>Developed pricing proposals supporting multiple business units</li>
+                        <li>Improved corporate yield through data-driven insights</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">Machine Learning</div>
+                <div class="skill-item">XGBoost</div>
+                <div class="skill-item">RStudio / R</div>
+                <div class="skill-item">Tableau</div>
+                <div class="skill-item">Power BI</div>
+                <div class="skill-item">SAS</div>
+                <div class="skill-item">SAP</div>
+                <div class="skill-item">Excel</div>
+                <div class="skill-item">Data Pipelines</div>
+                <div class="skill-item">Analytics & Reporting</div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education & Certifications</h2>
+
+            <div class="education-item">
+                <h3>Master of Applied Business Analytics</h3>
+                <p class="school">University of Arkansas</p>
+                <p class="details">Expected May 2027 | GPA: 4.0 | Chancellor's List (Fall 2024, 2025)</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Bachelor of Science in Data Science</h3>
+                <p class="school">University of Arkansas</p>
+                <p class="details">Expected May 2026 | GPA: 3.832 | Dean's List (Multiple Semesters)</p>
+            </div>
+
+            <div class="honors">
+                <h4>Academic Honors & Recognition</h4>
+                <div class="honors-list">
+                    <div class="honor-item">Chancellor's List - Spring 2023, Fall 2024, Fall 2025</div>
+                    <div class="honor-item">Dean's List - Fall 2022, 2024; Spring 2023, 2025</div>
+                    <div class="honor-item">Order of Omega - Greek Honor Society</div>
+                    <div class="honor-item">Eagle Scout - Boy Scouts of America</div>
+                    <div class="honor-item">National Indigenous Recognition Program Scholar</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Jack Green | Data Science & Analytics Professional</p>
+        <p>jackdgreen3@gmail.com | 479-461-6833 | Fort Smith, AR</p>
+        <p style="margin-top: 15px;">© 2026</p>
+    </footer>
+</body>
+</html>
