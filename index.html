@@ -371,6 +371,21 @@
             font-size: 2em;
             opacity: 0.3;
         }
+        .linktree-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #d45a33 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .linktree-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(232, 112, 74, 0.3);
+        }
         @media (max-width: 768px) {
             header {
                 padding: 40px 20px;
@@ -415,7 +430,7 @@
         <div class="header-decoration"></div>
         <div class="header-decoration-2"></div>
         <div class="profile-container">
-            <img src="profile.jpeg" alt="Jack Green" class="profile-image">
+            <img src="https://via.placeholder.com/140?text=Jack" alt="Jack Green" class="profile-image">
             <h1>JACK GREEN</h1>
             <p class="welcome">Data Science Professional & Lifelong Learner</p>
             <p class="intro-text">Turning complex data into clear insights. Passionate about solving real-world problems through analytics, machine learning, and thoughtful engineering.</p>
@@ -425,7 +440,7 @@
             </div>
         </div>
     </header>
-
+ 
     <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -433,7 +448,7 @@
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
     </nav>
-
+ 
     <div class="container">
         <section id="about">
             <h2><span class="section-icon">👋</span>About Me</h2>
@@ -459,7 +474,7 @@
                     <div class="stat-label">Years Leading Teams</div>
                 </div>
             </div>
-
+ 
             <!-- Fun Artwork Section -->
             <div class="divider-art">🎨 ✨ 📊</div>
             <div class="artwork-section">
@@ -481,10 +496,10 @@
                 </div>
             </div>
         </section>
-
+ 
         <section id="projects">
             <h2><span class="section-icon">🎯</span>Featured Projects</h2>
-
+ 
             <div class="project-card">
                 <div class="project-icon">🛍️</div>
                 <div class="project-content">
@@ -493,7 +508,7 @@
                     <p>Led a team developing machine learning models to forecast retail product demand. We engineered time-series features, analyzed seasonal patterns, and built an XGBoost model that improved inventory planning. <span class="highlight">Placed 2nd in university competition.</span> Presented to industry partners and faculty—a project that moved from concept to real business impact.</p>
                 </div>
             </div>
-
+ 
             <div class="project-card">
                 <div class="project-icon">📦</div>
                 <div class="project-content">
@@ -502,7 +517,7 @@
                     <p>Owned the complete development of a carrier analytics solution using SQL and Python. Built automated pipelines to generate personalized performance summaries for transportation carriers. Presented findings to business stakeholders for operational implementation. This project taught me how to translate business problems into technical solutions.</p>
                 </div>
             </div>
-
+ 
             <div class="project-card">
                 <div class="project-icon">💰</div>
                 <div class="project-content">
@@ -512,10 +527,10 @@
                 </div>
             </div>
         </section>
-
+ 
         <section id="experience">
             <h2><span class="section-icon">💼</span>Experience</h2>
-
+ 
             <div class="project-card">
                 <div class="project-icon">🏢</div>
                 <div class="project-content">
@@ -524,7 +539,7 @@
                     <p>Full-time role in the Engineer Development Program. Focused on data-driven logistics optimization and analytics development. Learning how data science impacts an organization at scale.</p>
                 </div>
             </div>
-
+ 
             <div class="project-card">
                 <div class="project-icon">📊</div>
                 <div class="project-content">
@@ -533,7 +548,7 @@
                     <p>Managing project timelines and deliverables for a high-visibility retail forecasting project. Serving as primary liaison between our student team and Dillard's data science team. Learned how to communicate across organizations and keep teams aligned toward shared goals.</p>
                 </div>
             </div>
-
+ 
             <div class="project-card">
                 <div class="project-icon">🏆</div>
                 <div class="project-content">
@@ -543,7 +558,7 @@
                 </div>
             </div>
         </section>
-
+ 
         <section id="skills">
             <h2><span class="section-icon">⚡</span>Skills & Tools</h2>
             <div class="skills-showcase">
@@ -561,10 +576,10 @@
                 <span class="skill-tag">Leadership</span>
             </div>
         </section>
-
+ 
         <section id="education">
             <h2><span class="section-icon">🎓</span>Education & Recognition</h2>
-
+ 
             <div class="education-card">
                 <div class="edu-icon">🏆</div>
                 <div class="edu-content">
@@ -573,7 +588,7 @@
                     <p class="details">Expected May 2027 | <span class="highlight">GPA: 4.0</span> | Chancellor's List (Fall 2024, 2025)</p>
                 </div>
             </div>
-
+ 
             <div class="education-card">
                 <div class="edu-icon">📚</div>
                 <div class="edu-content">
@@ -582,7 +597,7 @@
                     <p class="details">Expected May 2026 | <span class="highlight">GPA: 3.832</span> | Dean's List (Multiple Semesters)</p>
                 </div>
             </div>
-
+ 
             <div class="awards-section">
                 <h4>🏅 Academic Honors & Leadership</h4>
                 <div class="awards-grid">
@@ -596,12 +611,19 @@
             </div>
         </section>
     </div>
-
+ 
+    <div class="container" style="text-align: center; padding: 40px; background: #fff5e6; border-radius: 10px; margin-bottom: 40px;">
+        <h3 style="color: #2d5016; margin-bottom: 15px;">Quick Connect</h3>
+        <p style="color: #6b6b6b; margin-bottom: 20px;">Use my mobile-first link page for quick contact and social media</p>
+        <a href="linktree.html" class="linktree-button">📱 Open My Linktree Page</a>
+    </div>
+ 
     <footer>
         <p><strong>Jack Green</strong></p>
         <p>Data Science Professional | Analytics Engineer | Problem Solver</p>
         <p>📧 jackdgreen3@gmail.com | 📱 479-461-6833</p>
-        <p class="footer-note">Based in Fayetteville, Arkansas</p>
+        <p class="footer-note">Based in Fort Smith, Arkansas | Open to remote opportunities</p>
     </footer>
 </body>
 </html>
+ 
